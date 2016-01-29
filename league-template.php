@@ -1,6 +1,7 @@
 <?php
 include "functions/init.php";
 include "includes/head.php";
+include "includes/main-nav.php";
 ?>
 
 <div class="jumbotron">
@@ -45,6 +46,7 @@ include "includes/head.php";
 
 
 <?php
+include "includes/main-footer.php";
 include "includes/footer.php";
 include "functions/close.php";
 ?>
