@@ -1,0 +1,6 @@
+Options +FollowSymLinks
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^www.nycsoccer.com [NC]
+RewriteRule ^(.*)$ http://nycsoccer.com/$1 [R=301,L]
+RewriteRule ^(.*)index.*$ http://nycsoccer.com/$1 [R=301,L]
+

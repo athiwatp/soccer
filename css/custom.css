@@ -1,0 +1,161 @@
+body {
+  font-family: "Lato";
+  line-height: 1.6;
+  font-size: 1.8rem;
+  background-color: #FBFBFB;
+  font-weight: 300;
+}
+
+a {
+  color: #6fb6ee;
+  border-bottom: 1px solid rgba(111,182,238,0.50);
+}
+
+a:hover {
+  color: #6fb6ee;
+  text-decoration: none;
+  background-color: rgba(111,182,238,0.25);
+}
+
+h1, h2, h3, h4 {
+  font-family: "Montserrat";
+}
+
+.navbar {
+  margin-bottom: 0;
+}
+
+.navbar-collapse {
+    padding-top: 54px;
+    box-shadow: none;
+}
+
+.navbar-toggle {
+    background-color: #fff;
+    border-radius: 2px;
+    margin-top: 54px;
+}
+
+.navbar-toggle .icon-bar {
+    background-color: #6fb6ee;
+}
+
+.navbar-blue {
+  background-color: #6fb6ee;
+  color: #fff;
+  border: none;
+}
+
+.navbar-blue a {
+  color: #fff;
+}
+
+.nav>li>a:focus, .nav>li>a:hover {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.25);
+  text-decoration: none;
+}
+
+li.active {
+    background-color: rgba(255,255,255,0.1);
+}
+
+a.navbar-brand {
+    height: 100%;
+    margin-right: 40px;
+}
+
+.navbar-brand>img {
+    max-width: 180px;
+}
+
+.jumbotron {
+  background-color: #6fb6ee;
+  color: #fff;
+  margin-bottom: 0;
+}
+
+.jumbotron .lead, .lead {
+  font-size: 2.6rem;
+}
+
+.jumbotron .link {
+  color: #fff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.jumbotron .link:hover {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.25);
+  text-decoration: none;
+}
+
+.page-header {
+  border-bottom: none;
+}
+
+.btn {
+  border-radius: 2px;
+  border-width: 0;
+  padding: 10px 25px;
+  font-family: "Montserrat";
+  text-transform: uppercase;
+}
+
+.btn-default {
+  background-color: #efefef;
+}
+
+.btn-success {
+  background-color: #b4e216;
+  color: #222;
+}
+
+.btn-primary {
+  background-color: #da98e9;
+  color: #222;
+}
+
+.btn-primary:hover, .btn-primary:active, .btn-primary:focus {
+  background-color: #CC8EDA;
+  color: #222;
+}
+
+.btn-success:hover, .btn-success:active, .btn-success:focus {
+  background-color: #A6D211;
+  color: #222;
+}
+
+.panel.panel-default {
+    box-shadow: none;
+    border-radius: 2px;
+}
+
+.leagues-list li {
+    margin-bottom: 16px;
+    list-style: none;
+    font-size: 2.6rem;
+}
+
+.season-status {
+    text-align: center;
+    background-color: #DA98E9;
+    padding: 10px;
+    color: #fff;
+    font-family: "montserrat";
+}
+
+.league-info {
+    margin-top: 20px;
+}
+
+.league-info h3 small {
+    font-family: "lato";
+    font-size: 80%;
+}
+.footer {
+    border-top: 6px solid #6FB6EE;
+    margin-top: 40px;
+    background-color: #E6E6E6;
+    padding: 40px;
+}
