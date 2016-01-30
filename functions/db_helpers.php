@@ -7,12 +7,6 @@ function dbTime($original_time) {
 }
 
 
-function getDay($start_date) {
-	$time_stamp 	= strtotime($start_date);
-	$day 			= date('l', $time_stamp);
-	return $day;
-}
-
 
 function dbCreateLeague($values) {
 
@@ -111,11 +105,16 @@ function fetchLeague($league_id) {
 	':league_id' => $league_id
 	]);
 
+	$count = $query->rowCount();
+
+	if ($count != 1) {
+		redirect('404.php');
+	}
+
 	$result = $query->fetch(PDO::FETCH_ASSOC);
 
 	return $result;
  	
- 
 }
 
 

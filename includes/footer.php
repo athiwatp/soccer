@@ -5,5 +5,12 @@
     <?php
     echo '<script src="'.$path.'js/bootstrap.min.js"></script>';
     ?>
+
+    <script>
+    $(function () {
+  		$('[data-toggle="tooltip"]').tooltip()
+	})
+    </script>
+    
   </body>
 </html>
