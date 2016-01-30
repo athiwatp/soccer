@@ -137,12 +137,20 @@ a.navbar-brand {
     font-size: 2.6rem;
 }
 
-.season-status {
-    text-align: center;
-    background-color: #DA98E9;
+.season-status, .admin-message-success {
     padding: 10px;
-    color: #fff;
     font-family: "montserrat";
+    text-align: center;
+}
+
+.season-status {
+  background-color: #DA98E9;
+  color: #fff;
+}
+
+.admin-message-success , .admin-message-success a{
+  background-color: #b4e216;
+  color: #222;
 }
 
 .league-info {
@@ -158,4 +166,16 @@ a.navbar-brand {
     margin-top: 40px;
     background-color: #E6E6E6;
     padding: 40px;
+}
+.container-main {
+  padding-bottom: 40px;
+}
+.medium-input {
+  max-width: 200px
+}
+.small-input {
+  max-width: 120px
+}
+.xsmall-input {
+  max-width: 75px
 }
