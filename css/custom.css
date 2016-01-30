@@ -179,3 +179,6 @@ a.navbar-brand {
 .xsmall-input {
   max-width: 75px
 }
+.alert {
+  border-radius: 0;
+}

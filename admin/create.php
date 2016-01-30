@@ -6,12 +6,15 @@ include $path . "includes/admin-nav.php";
 
 ?>
 
-<!-- <div class="admin-message-success">
-	<a href="#">League created</a>! Create another or return to <a href="#">all leagues</a>.
-</div> -->
+
+<div class="alert alert-success"> 
+	Success! <a href="#">Preview the league</a>, create another below.
+</div>
 
 
 <div class="container container-main">
+
+<a href="#"><i class="fa fa-arrow-left"></i> All leagues</a>
 
 <h1>Create a League</h1>
 
@@ -75,7 +78,7 @@ include $path . "includes/admin-nav.php";
   
     <label class="control-label">Start Time</label>
     <div class="form-group form-group-lg form-inline">
-      <input type="time" class="form-control small-input" name="league-starttime" placeholder="">
+      <input type="time" class="form-control small-input" name="league-start-time" placeholder="">
       <select class="form-control xsmall-input" name="league-start-ampm">
         <option value="am">AM</option>
         <option value="pm" selected="1">PM</option>
@@ -84,7 +87,7 @@ include $path . "includes/admin-nav.php";
      
     <label class="control-label">End Time</label>
     <div class="form-group form-group-lg form-inline">
-      <input type="time" class="form-control small-input" name="league-endtime" placeholder="">
+      <input type="time" class="form-control small-input" name="league-end-time" placeholder="">
       <select class="form-control xsmall-input" name="league-end-ampm">
         <option value="am">AM</option>
         <option value="pm" selected="1">PM</option>

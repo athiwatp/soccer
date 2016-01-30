@@ -1,11 +1,20 @@
 <?php 
 
-function db_insert($table) {
+function db_insert($table, $keys, $values) {
 
 	global $con;
 	$query = $con->prepare("
-		INSERT INTO :table");
+		INSERT INTO :table
+		(:keys)
+		VALUES 
+		(:values)
+		");
 
+	$query->execute([
+		'table' 	=> $table,
+		'keys'		=> $keys,
+		'values' 	=> $values
+		])
 }
 
 
