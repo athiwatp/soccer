@@ -168,7 +168,8 @@ a.navbar-brand {
     padding: 40px;
 }
 .container-main {
-  padding-bottom: 40px;
+    padding-top: 20px;
+    padding-bottom: 40px;
 }
 .medium-input {
   max-width: 200px

@@ -4,22 +4,29 @@ include $path . "functions/session_check.php";
 include $path . "includes/head.php";
 include $path . "includes/admin-nav.php";
 
+if (isset($_POST['create-league'])) {
+
+  dbCreateLeague($_POST);
+}
+
 ?>
 
 
-<div class="alert alert-success"> 
+<div class="alert alert-success alert-dismissible"> 
+<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+<span aria-hidden="true">&times;</span></button> 
 	Success! <a href="#">Preview the league</a>, create another below.
 </div>
 
 
 <div class="container container-main">
 
-<a href="#"><i class="fa fa-arrow-left"></i> All leagues</a>
+<a href="#"><i class="fa fa-arrow-left"></i> Back to all leagues</a>
 
 <h1>Create a League</h1>
 
 <!-- FORM START-->
-<form method="post" action="league-view.php" class="col-md-6">
+<form method="post" class="col-md-6">
   
   <!-- SEASON START -->
   <div class="form-group form-group-lg">
@@ -238,7 +245,7 @@ include $path . "includes/admin-nav.php";
   </div>
 <!-- ENABLED    END -->
  
-<button type="submit" class="btn btn-success btn-block">Create League</button>
+<button type="submit" name="create-league" class="btn btn-success btn-block">Create League</button>
   </form>
 	<!-- FORM END-->
 </div>

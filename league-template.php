@@ -2,6 +2,51 @@
 include "functions/init.php";
 include "includes/head.php";
 include "includes/main-nav.php";
+
+$result = fetchLeague(11);
+
+//LOCATION INFO
+$location_hood      = $result['location_hood'];
+$location_field     = $result['location_field'];
+// $location_map_link   = $result['location_map_link'];
+// $location_map_embed    = $result['location_map_embed'];
+
+//LEAGUE DETAILS
+$league_season    = $result['league_season']; 
+$league_season    = $result['league_season']; 
+$league_deadline  = $result['league_deadline']; 
+$league_start     = $result['league_start']; 
+$league_end       = $result['league_end']; 
+$league_start_time  = $result['league_start_time']; 
+$league_end_time  = $result['league_end_time'];
+$league_day       = $result['league_day']; 
+$league_minpergame  = $result['league_minpergame']; 
+$league_games     = $result['league_games']; 
+$league_playoff_teams = $result['league_playoff_teams']; 
+$league_roster    = $result['league_roster']; 
+$league_onfield   = $result['league_onfield']; 
+$league_femsonfield = $result['league_femsonfield']; 
+$league_price     = $result['league_price']; 
+$league_freeagents  = $result['league_freeagents']; 
+$league_captains  = $result['league_captains']; 
+$league_teamplayers = $result['league_teamplayers']; 
+$league_note    = $result['league_note']; 
+$league_laid    = $result['league_laid']; 
+$league_enabled   = $result['league_enabled'];
+
+
+  //COMPILED INFO
+
+  if ($league_femsonfield > 0) {
+    $league_format = 'Co-Ed';
+  }
+  else {
+    $league_format = 'Men\'s';
+  }
+
+  $league_headline  = $league_onfield . 'v' . $league_onfield . ' ' . $league_format . ' Soccer';
+  $league_subhead   = $league_day . 's @ ' . $location_field . ', ' . $location_hood; 
+
 ?>
 
 <div class="jumbotron">
