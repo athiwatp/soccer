@@ -1,27 +1,30 @@
 <?php
 include "../functions/init.php";
 include $path . "functions/session_check.php";
-include $path . "includes/head.php";
-include $path . "includes/admin-nav.php";
+
 
 //Need some authentication around this? 
 if (isset($_POST['create-location'])) {
-  dbCreateLocation($_POST);
+  $success = dbCreateLocation($_POST);
 }
+
+include $path . "includes/head.php";
+include $path . "includes/admin-nav.php";
+
+if (isset($success) && $success == 1) {
+  echo '<div class="alert alert-success alert-dismissible"> 
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span></button> 
+        Success! Location created.
+        </div>';
+}
+
 
 ?>
 
-
-<div class="alert alert-success alert-dismissible"> 
-<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-<span aria-hidden="true">&times;</span></button> 
-	Success! Location created.
-</div>
-
-
 <div class="container container-main">
 
-<a href="locations.php"><i class="fa fa-arrow-left"></i> Back to all locations</a>
+<a href="admin/locations.php"><i class="fa fa-arrow-left"></i> Back to all locations</a>
 
 <h1>Create a Location</h1>
 

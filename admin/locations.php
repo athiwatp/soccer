@@ -1,19 +1,30 @@
 <?php
 include "../functions/init.php";
 include $path . "functions/session_check.php";
+
+$boroughs = fetchLocationBoroughs();
+
 include $path . "includes/head.php";
 include $path . "includes/admin-nav.php";
 
-?>
 
 
+echo '
 <div class="container container-main">
 
-<a href="create-location.php" class="btn btn-success"><i class="fa fa-plus"></i> Create Location</a>
+<a href="admin/create-location.php" class="btn btn-success"><i class="fa fa-plus"></i> Create Location</a>';
 
-<!-- BOROUGH START-->
+
+
+for ($i = 0 ; $i < count($boroughs) ; $i++) {
+
+	$location_borough 	= $boroughs[$i]['location_borough'];
+	$locations			= fetchLocationsByBorough($location_borough);
+
+	echo '
+	<!-- BOROUGH START-->
 	<div class="table-responsive">
-		<h2>Brooklyn</h2>
+		<h2>'.$location_borough.'</h2>
 		<table class="table table-striped table-hover table-condensed">
 		  <thead>
 		  	<tr> 
@@ -21,33 +32,41 @@ include $path . "includes/admin-nav.php";
 		  		<th>Hood</th> 
 		  		<th>Map Link</th> 
 		  		<th>Map Embed</th> 
-		  		<th></th> 
+		  		<th></th>
 		  	</tr> 
 		  </thead> 
-		  <tbody> 
-		  	<tr> 
-		  		<th scope="row">Bushwick Inlet Park</th> 
-		  		<td>Williamsburg</td> 
-		  		<td><a href="http://goo.gl/maps/dR9YY">http://goo.gl/maps/dR9YY</a></td> 
-		  		<td><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48383.29169292403!2d-73.98983852834188!3d40.718991026953645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x84dd509062cc29d!2sBushwick+Inlet+Park!5e0!3m2!1sen!2sus!4v1453697984306" width="300" height="300" frameborder="0" style="border:0" allowfullscreen></iframe></td> 
-		  		<td><a href="#">Edit</a></td>
-		  	</tr> 
-		  	<tr> 
-		  		<th scope="row">Bushwick Inlet Park</th> 
-		  		<td>Williamsburg</td> 
-		  		<td><a href="http://goo.gl/maps/dR9YY">http://goo.gl/maps/dR9YY</a></td> 
-		  		<td><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48383.29169292403!2d-73.98983852834188!3d40.718991026953645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x84dd509062cc29d!2sBushwick+Inlet+Park!5e0!3m2!1sen!2sus!4v1453697984306" width="300" height="300" frameborder="0" style="border:0" allowfullscreen></iframe></td> 
-		  		<td><a href="#">Edit</a></td>
-		  	</tr> 
-		  </tbody>
+		  <tbody>';
+		
+		  for ($ii = 0 ; $ii < count($locations) ; $ii++) {
+
+		  	$location_id        	= $locations[$ii]['location_id'];
+		  	$location_hood        	= $locations[$ii]['location_hood'];
+			$location_field       	= $locations[$ii]['location_field'];
+			$location_map_link    	= html_entity_decode($locations[$ii]['location_map_link']);
+			$location_map_embed   	= html_entity_decode($locations[$ii]['location_map_embed']);
+
+		  	echo '<tr> 
+		  		<th scope="row">'.$location_field.'</th> 
+		  		<td>'.$location_hood.'</td> 
+		  		<td><a href="'.$location_map_link.'">'.$location_map_link.'</a></td> 
+		  		<td>'.$location_map_embed.'</td> 
+		  		<td><a href="admin/edit-location.php?id='.$location_id.'">Edit</a></td>
+		  	</tr>';
+		  }
+		  	
+	
+
+	echo '</tbody>
 		</table>
 	</div>
-	<!-- BOROUGH END-->
-</div>
+	<!-- BOROUGH END-->';
+
+}
 
 
 
-<?php 
+echo '</div>';
+ 
 
 include $path . "includes/footer.php";
 include $path . "functions/close.php";

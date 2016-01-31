@@ -4,33 +4,35 @@ ob_start();
 session_start();
 
 
-//$ignore 	= 3; // The count of forward slashes in a URL path ends up counting a extra by default.
+//This is the part I'm not too proud of. 
+//I know there's a better way, but time woudln't allow
 
 $path = '';
 
-$url_path = explode("/", $_SERVER['REQUEST_URI']);
+$full_url = explode("?", $_SERVER['REQUEST_URI']);
+
+$url_path = explode("/", $full_url[0]);
 
 if ($_SERVER['HTTP_HOST'] == "localhost") {
 	$i = 0;
 } else {
 	$i = 1;
 }
-  	$borough    = $url_path[2-$i];
-  	
-	if ($borough == 'admin') {
-		$path = '../';
-	}
-	if (isset($url_path[3-$i])) {
-	  $league_id  = $url_path[3-$i];
-	}
 
+switch ($url_path[2-$i]) {
+    case '':
+        $borough 	= 'home';
+        break;
+    case 'admin':
+        $path 		= '../';
+        break;
+    default:
+    	$borough    = $url_path[2-$i];
+}
 
-// if ()
-// $path_count = count($url_path) - $ignore;
-// $path = "";
-// for ($i = 0 ; $i < $path_count ; $i++) {
-// 	$path .= "../"; 
-// }
+if (isset($url_path[3-$i])) {
+  $league_id  = $url_path[3-$i];
+}
 
 include $path . "db/con.php";
 include $path . "functions/helpers.php";

@@ -2,8 +2,39 @@
 include "../functions/init.php";
 include $path . "functions/session_check.php";
 
+$season_ids = [1,2,3,4];
+
+if (isset($_GET['activate_season']) && in_array($_GET['activate_season'], $season_ids)) {
+	dbActivateSeason($_GET['activate_season']);
+}
+
+if (isset($_GET['delete_league'])) {
+	$deleted_id = dbSoftDeleteLeague($_GET['delete_league']);
+	$result	 = fetchLeague($deleted_id);
+	include $path . "functions/league_data.php";
+}
+
+if (isset($_GET['undelete_league'])) {
+	$undeleted_id 	= dbUnDeleteLeague($_GET['undelete_league']);
+	$result	 	= fetchLeague($undeleted_id);
+	include $path . "functions/league_data.php";
+}
+
+
 include $path . "includes/head.php";
 include $path . "includes/admin-nav.php";
+
+	if (isset($deleted_id)) {
+  		echo '<div class="alert alert-danger"> 
+	        Deleted '.$league_name.' <a href="admin/?undelete_league='.$deleted_id.'">Undo</a>.
+	        </div>';
+
+		}
+ if (isset($undeleted_id)) {
+	  echo '<div class="alert alert-success"> 
+	        Restored '.$league_name.'.
+	        </div>';
+	}
 
 echo '
 <div class="container container-main">
@@ -13,12 +44,20 @@ echo '
 //LOOPING THROUGH EACH SEASON
 for ($i = 1 ; $i < 5 ; $i++) {
 	
-	$leagues = fetchLeaguesBySeason($i);
-	$season_name = $leagues[0]['season_name'];
+	$leagues 		= fetchLeaguesBySeason($i);
+	$season_id		= $leagues[0]['season_id'];
+	$season_name 	= $leagues[0]['season_name'];
+	$season_status 	= $leagues[0]['season_status'];
 
 	echo '<!-- SEASON START-->
 	<div class="table-responsive">
-		<h2>'.$season_name.' <small><a href="#"><?php  ?></a></small></h2>
+		<h2>'.$season_name.' <small>';
+		if ($season_status == 0) {
+			echo ' Inactive <a class="btn btn-sm btn-default" href="admin/?activate_season='.$season_id.'">Activate</a>';
+		} else {
+			echo ' Active ';
+		}
+		echo '</small></h2>
 		<table class="table table-striped table-hover table-condensed">
 		  <thead>
 		  	<tr> 
@@ -28,6 +67,7 @@ for ($i = 1 ; $i < 5 ; $i++) {
 		  		<th>Price</th> 
 		  		<th>LA</th>
 		  		<th></th> 
+		  		<th></th>
 		  	</tr> 
 		  </thead> 
 		  <tbody> ';
@@ -70,6 +110,7 @@ for ($i = 1 ; $i < 5 ; $i++) {
 		  		<td>$'.$league_price.'</td>
 		  		<td>'.$league_laid.'</td>
 		  		<td><a href="admin/edit-league.php?id='.$league_id.'">Edit</a></td>
+		  		<td><a class="text-danger" href="admin/?delete_league='.$league_id.'">Delete</a></td>
 		  	</tr> ';
 
 		  }
