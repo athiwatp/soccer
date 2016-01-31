@@ -1,48 +1,9 @@
 <?php
 include "functions/init.php";
 
-$result = fetchLeague(13);
+$result = fetchLeague($league_id);
 
-//LOCATION INFO
-$location_hood      = $result['location_hood'];
-$location_field     = $result['location_field'];
-// $location_map_link   = $result['location_map_link'];
-// $location_map_embed    = $result['location_map_embed'];
-
-//LEAGUE DETAILS
-$league_season      = $result['league_season']; 
-$league_season      = $result['league_season']; 
-$league_deadline    = $result['league_deadline']; 
-$league_start       = formatDate($result['league_start']); 
-$league_end         = formatDate($result['league_end']); 
-$league_start_time  = formatTime($result['league_start_time']); 
-$league_end_time    = formatTime($result['league_end_time']);
-$league_day         = $result['league_day']; 
-$league_minpergame  = $result['league_minpergame']; 
-$league_games       = $result['league_games']; 
-$league_playoff_teams = $result['league_playoff_teams']; 
-$league_roster      = $result['league_roster']; 
-$league_onfield     = $result['league_onfield']; 
-$league_femsonfield = $result['league_femsonfield']; 
-$league_price       = $result['league_price']; 
-$league_freeagents  = $result['league_freeagents']; 
-$league_captains    = $result['league_captains']; 
-$league_teamplayers = $result['league_teamplayers']; 
-$league_note        = $result['league_note']; 
-$league_laid        = $result['league_laid']; 
-$league_enabled     = $result['league_enabled'];
-
-//COMPILED INFO
-if ($league_femsonfield > 0) {
-  $league_format = 'Co-Ed';
-}
-else {
-  $league_format = 'Men\'s';
-}
-
-$league_headline  = $league_onfield . 'v' . $league_onfield . ' ' . $league_format . ' Soccer';
-$league_subhead   = $league_day . 's @ ' . $location_field . ', ' . $location_hood; 
-
+include "functions/league_data.php";
 
 //////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////// HTML START /////////////////////////////////////////////
@@ -58,7 +19,8 @@ echo '
   <p class="lead">'.$league_subhead.'</p>
   <div class="hidden-xs">
     <p>';
-if ($league_enabled == 1) {
+
+if ($league_status == 'Open') {
   
   if ($league_captains == 1) {
     echo '<a href="http://register.nycsoccer.com/registration?bid='.$league_laid.'&amp;type=Captain" 
@@ -80,12 +42,15 @@ if ($league_enabled == 1) {
   }
 }
 else {
-  echo 'Sorry, registrations are not currently being accepted for this league.';
+  echo 'Sorry, this league is sold out!';
 }
 echo '
 </p>
 </div>
 </div>
+</div>
+
+<div class="season-status">'.$season_name.' Registration Deadline: '.$league_deadline.'
 </div>
 
 <div class="container container-main">
@@ -102,13 +67,11 @@ echo '
 
      echo '</small></h3>
 
-    <h3><i class="fa fa-map-marker"></i> ' . $location_field . ' <br><small> <a href="#">Open Map </a></small></h3>
+    <h3><i class="fa fa-map-marker"></i> ' . $location_field . ' <br><small> <a href="'.$location_map_link.'">Open Map </a></small></h3>
 
     <h3><i class="fa fa-usd"></i> ' . $league_price . '/player <br><small>Fees cover the NYC Parks permit for the field, the best referees, high-quality balls &amp; large-size goals.</small></h3>
    </div>
-   <div class="col-md-4 league-info hidden-sm hidden-xs">
-     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48383.29169292403!2d-73.98983852834188!3d40.718991026953645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x84dd509062cc29d!2sBushwick+Inlet+Park!5e0!3m2!1sen!2sus!4v1453697984306" width="300" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
-   </div>
+   <div class="col-md-4 league-info hidden-sm hidden-xs">'.$location_map_embed.'</div>
 
 <div class="visible-xs">
   <p>

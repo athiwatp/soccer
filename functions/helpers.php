@@ -22,8 +22,23 @@ function formatDate($date) {
 	return $new_format;
 }
 
+function shortDate($date) {
+	$new_format = date_format(date_create($date), 'M j'); 
+	return $new_format;
+}
+
 function formatTime($time) {
-	$new_format = date_format(date_create($time), 'ga'); 
+	$new_format = date_format(date_create($time), 'g.ia'); 
+	return $new_format;
+}
+
+function onlyTime($time) {
+	$new_format = date_format(date_create($time), 'g:i'); 
+	return $new_format;
+}
+
+function onlyAmPm($time) {
+	$new_format = date_format(date_create($time), 'a'); 
 	return $new_format;
 }
 

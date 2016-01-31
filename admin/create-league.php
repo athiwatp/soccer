@@ -4,8 +4,7 @@ include $path . "functions/session_check.php";
 
 //Need some authentication around this? 
 if (isset($_POST['create-league'])) {
-  print_r($_POST);
-  dbCreateLeague($_POST);
+  $insert_id = dbCreateLeague($_POST);
 }
 
 $locations = fetchLocations();
@@ -13,18 +12,20 @@ $locations = fetchLocations();
 include $path . "includes/head.php";
 include $path . "includes/admin-nav.php";
 
-?>
+if (isset($insert_id)) {
+  echo '<div class="alert alert-success alert-dismissible"> 
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span></button> 
+        Success! <a href="../preview/'.$insert_id.'">Preview the league</a>, or create another below.
+        </div>';
+}
 
-<div class="alert alert-success alert-dismissible"> 
-<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-<span aria-hidden="true">&times;</span></button> 
-	Success! <a href="#">Preview the league</a>, or create another below.
-</div>
+?>
 
 
 <div class="container container-main">
 
-<a href="#"><i class="fa fa-arrow-left"></i> Back to all leagues</a>
+<a href="admin/"><i class="fa fa-arrow-left"></i> Back to all leagues</a>
 
 <h1>Create a League</h1>
 
@@ -234,23 +235,23 @@ include $path . "includes/admin-nav.php";
   </div>
 <!-- LAPPS    END -->
 
-<!-- ENABLED START -->
+<!-- STATUS START -->
   <div class="form-group form-group-lg">
-    <label class="control-label">Enabled</label>
+    <label class="control-label">Status</label>
       <div class="radio">
   		<label>
-    		<input type="radio" name="league-enabled" value="1" checked>
-    		Yes
+    		<input type="radio" name="league-status" value="1" checked>
+    		Open for Registration
   		</label>
 		</div>
       <div class="radio">
   		<label>
-    		<input type="radio" name="league-enabled" value="0" >
-    		No
+    		<input type="radio" name="league-status" value="0" >
+    		Sold Out
   		</label>
 	</div>
   </div>
-<!-- ENABLED    END -->
+<!-- STATUS    END -->
  
 <button type="submit" name="create-league" class="btn btn-success btn-block">Create League</button>
   </form>

@@ -4,15 +4,33 @@ ob_start();
 session_start();
 
 
-$ignore 	= 2; // The count of forward slashes in a URL path ends up counting 1 extra by default.
+//$ignore 	= 3; // The count of forward slashes in a URL path ends up counting a extra by default.
+
+$path = '';
+
+$url_path = explode("/", $_SERVER['REQUEST_URI']);
+
 if ($_SERVER['HTTP_HOST'] == "localhost") {
-	$ignore = 3; // For local dev purposes to keep the path pointing to the right root directory. 
+	$i = 0;
+} else {
+	$i = 1;
 }
-$path_count = count(explode("/", $_SERVER['REQUEST_URI'])) - $ignore;
-$path = "";
-for ($i = 0 ; $i < $path_count ; $i++) {
-	$path .= "../"; 
-}
+  	$borough    = $url_path[2-$i];
+  	
+	if ($borough == 'admin') {
+		$path = '../';
+	}
+	if (isset($url_path[3-$i])) {
+	  $league_id  = $url_path[3-$i];
+	}
+
+
+// if ()
+// $path_count = count($url_path) - $ignore;
+// $path = "";
+// for ($i = 0 ; $i < $path_count ; $i++) {
+// 	$path .= "../"; 
+// }
 
 include $path . "db/con.php";
 include $path . "functions/helpers.php";

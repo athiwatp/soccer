@@ -5,11 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Soccer</title>
-
+    <base href="http://localhost/soccer/">
     <!-- Bootstrap -->
     <?php 
-    echo '<link href="'.$path.'css/bootstrap.min.css" rel="stylesheet" type="text/css">
-          <link href="'.$path.'css/custom.css" rel="stylesheet" type="text/css">';
+    echo '<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+          <link href="css/custom.css" rel="stylesheet" type="text/css">';
     ?>
     
     <!-- Fonts -->
@@ -24,10 +24,7 @@
     <![endif]-->
   </head>
   <body>
-    <div class="season-status">
-          Spring Registration Deadline: February 12
-        </div>
-
+  
         <nav class="navbar navbar-blue navbar-static-top">
           <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -38,9 +35,9 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="/">
+              <a class="navbar-brand" href="">
             <?php 
-              echo '<img alt="NYCSoccer.com" src="'.$path.'imgs/nycsoccer-white-logo.png">';
+              echo '<img alt="NYCSoccer.com" src="imgs/nycsoccer-white-logo.png">';
             ?>
               </a>
             </div>
