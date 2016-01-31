@@ -9,6 +9,8 @@ include $path . "includes/admin-nav.php";
 
 <div class="container container-main">
 
+<a href="create-league.php" class="btn btn-success"><i class="fa fa-plus"></i> Create League</a>
+
 <!-- SEASON START-->
 	<div class="table-responsive">
 		<h2>Spring <small><a href="#">Activate</a></small></h2>

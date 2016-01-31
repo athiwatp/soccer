@@ -1,21 +1,24 @@
 <?php
 include "../functions/init.php";
 include $path . "functions/session_check.php";
-include $path . "includes/head.php";
-include $path . "includes/admin-nav.php";
 
+//Need some authentication around this? 
 if (isset($_POST['create-league'])) {
-
+  print_r($_POST);
   dbCreateLeague($_POST);
 }
 
-?>
+$locations = fetchLocations();
 
+include $path . "includes/head.php";
+include $path . "includes/admin-nav.php";
+
+?>
 
 <div class="alert alert-success alert-dismissible"> 
 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
 <span aria-hidden="true">&times;</span></button> 
-	Success! <a href="#">Preview the league</a>, create another below.
+	Success! <a href="#">Preview the league</a>, or create another below.
 </div>
 
 
@@ -31,8 +34,8 @@ if (isset($_POST['create-league'])) {
   <!-- SEASON START -->
   <div class="form-group form-group-lg">
     <label class="control-label">Season</label>
-      <select class="form-control medium-input" name="league-season">
-        <option value="1" selected="1">Spring</option>
+      <select class="form-control medium-input" name="season-id">
+        <option value="1" selected>Spring</option>
         <option value="2">Summer</option>
         <option value="3">Fall</option>
         <option value="4">Winter</option>
@@ -44,8 +47,12 @@ if (isset($_POST['create-league'])) {
   <div class="form-group form-group-lg">
     <label class="control-label">Field</label>
       <select class="form-control medium-input" name="location-id">
-       <option value="1">Bushwick Inlet Park</option>
-       <option value="2">James J Walker Park</option>  
+       <?php 
+       for ($i = 0 ; $i < count($locations) ; $i++) {
+          echo '<option value="'.$locations[$i]['location_id'].'">'.$locations[$i]['location_field'].'</option>';
+       }
+        
+       ?> 
       </select>
   </div>
 <!-- LOCATION END -->

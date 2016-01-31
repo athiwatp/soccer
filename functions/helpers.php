@@ -27,4 +27,16 @@ function formatTime($time) {
 	return $new_format;
 }
 
+function getBorough($hood) {
+	if ($hood == 'Dumbo' || $hood == 'Williamsburg' || $hood == 'Bushwick') {
+		return 'Brooklyn';
+	}
+	if ($hood == 'Long Island City' || $hood == 'Jamaica' || $hood == 'Jackson Heights') {
+		return 'Queens';
+	}
+	if ($hood == 'Chelsea' || $hood == 'East Village' || $hood == 'West Village') {
+		return 'Manhattan';
+	}
+}
+
 ?>

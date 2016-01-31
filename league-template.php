@@ -1,11 +1,7 @@
 <?php
 include "functions/init.php";
-include "includes/head.php";
-include "includes/main-nav.php";
 
 $result = fetchLeague(13);
-
-
 
 //LOCATION INFO
 $location_hood      = $result['location_hood'];
@@ -46,6 +42,14 @@ else {
 
 $league_headline  = $league_onfield . 'v' . $league_onfield . ' ' . $league_format . ' Soccer';
 $league_subhead   = $league_day . 's @ ' . $location_field . ', ' . $location_hood; 
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////// HTML START /////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+include "includes/head.php";
+include "includes/main-nav.php";
 
 echo '
 <div class="jumbotron">
