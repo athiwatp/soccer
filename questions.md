@@ -8,3 +8,4 @@
 ###Design/Structure
 
 * Is there a best practice to follow when templating out pages? 
+* What's the best way to deal with path references? 
