@@ -81,10 +81,31 @@ echo '
    <div class="col-md-4 league-info hidden-sm hidden-xs">'.$location_map_embed.'</div>
 
 <div class="visible-xs">
-  <p>
-<a class="btn btn-default btn-block">Create a Team</a>
-<a class="btn btn-default btn-block">Join Your Team</a>
-<a class="btn btn-success btn-block">Join as Free Agent</a>
+  <p>';
+
+if ($league_status == 1) {
+  
+  if ($league_captains == 1) {
+    echo '<a href="http://register.nycsoccer.com/registration?bid='.$league_laid.'&amp;type=Captain" 
+          class="btn btn-success btn-block">
+          Create a Team</a>';
+  }
+  if ($league_teamplayers == 1) {
+    echo '<a href="http://register.nycsoccer.com/registration?bid='.$league_laid.'&amp;type=Team" 
+          class="btn btn-default btn-block">
+          Join Your Team</a>';
+  }
+  if ($league_freeagents == 1) {
+    echo '<a href="http://register.nycsoccer.com/registration?bid='.$league_laid.'&amp;type=FA" 
+          class="btn btn-default btn-block">
+          Join as Free Agent</a>';
+  }
+}
+else {
+  echo 'Sorry, this league is sold out!';
+}
+echo '
+
 </p>
 </div>
 

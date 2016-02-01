@@ -3,3 +3,4 @@ RewriteBase /soccer
 RewriteCond %{REQUEST_URI} !(.*)/$
 RewriteRule ^brooklyn$|queens$|manhattan$	borough-template.php\?$1 [NC,L]
 RewriteRule ^preview/(.*)|brooklyn/(.*)|queens/(.*)|manhattan/(.*)	league-template.php?id=$1 [NC,L]
+ErrorDocument 404 http://nycsoccer.com/404.php

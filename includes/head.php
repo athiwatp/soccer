@@ -4,8 +4,30 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Soccer</title>
-    <base href="http://localhost/soccer/">
+
+    <?php 
+
+    if (isset($borough) && $borough == 'home') {
+      $title_tag = 'NYC Soccer League | Fun Co-Ed Soccer in New York';
+    }
+    $borough_array = ['Brooklyn', 'Manhattan', 'Queens'];
+    if (isset($location_borough) && in_array($location_borough, $borough_array)) {
+      $title_tag = $location_borough.' Soccer League | Co-Ed &amp; Men\'s';
+    }
+    if (isset($league_id)) {
+      $title_tag = $league_name;
+    }
+
+    if (isset($title_tag)) {} 
+      else {
+        $title_tag = 'NYCSoccer.com';
+      }
+
+    echo '<title>'.$title_tag.'</title>';
+
+    ?>
+
+    <base href="http://nycsoccer.com/">
     <!-- Bootstrap -->
     <?php 
     echo '<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">

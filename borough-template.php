@@ -3,6 +3,7 @@ include "functions/init.php";
 
 
 $location_borough 	= ucfirst($borough);
+
 $leagues 			      = fetchActiveLeaguesByBorough($location_borough);
 
 $locations 			    = fetchLocationsByBorough($location_borough);
@@ -20,7 +21,7 @@ echo '
 <div class="jumbotron">
 <div class="container">
 <h1>'.$location_borough.' Soccer Leagues</h1>
-<p class="lead">We play on the best fields in '.$location_borough.', including ';
+<p class="lead">We play on the best soccer fields in '.$location_borough.', including ';
 
 for ($i = 0 ; $i < count($fields) ; $i++) {
 	echo '<a class="link" target="_blank" href="'.$fields[$i]['location_map_link'].'">'.$fields[$i]['location_field'].'</a>';
