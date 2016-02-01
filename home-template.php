@@ -6,7 +6,7 @@ include "includes/main-nav.php";
 
 <div class="jumbotron">
 <div class="container">
-<h1>This is the jumbotron headline</h1>
+<h1>NYC's Fun Soccer League</h1>
 <p class="lead">Maintaining vertical rhythm (or composing to a baseline grid) is <a class="link">the practice</a> of making sure that the height of each textual element on the page</p>
 <a class="btn btn-default">Default Button</a>
 <a class="btn btn-success">Success Button</a>

@@ -44,8 +44,10 @@ if ($league_status == 1) {
 else {
 	$league_status = 'Sold Out';
 }
-$league_name 		= $league_day.' '.$league_onfield.'v'.$league_onfield.' '.$league_format.' @ '.$location_field;
+
 $league_headline  	= $league_onfield . 'v' . $league_onfield . ' ' . $league_format . ' Soccer';
 $league_subhead   	= $league_day . 's @ ' . $location_field . ', ' . $location_hood; 
+$league_name 		= $league_day.' '.$league_headline.' @ '.$location_field;
+$league_name_long	= $league_name.', '.$location_hood;
 
 ?>

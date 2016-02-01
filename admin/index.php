@@ -45,7 +45,11 @@ echo '
 for ($i = 1 ; $i < 5 ; $i++) {
 	
 	$leagues 		= fetchLeaguesBySeason($i);
-	$season_id		= $leagues[0]['season_id'];
+
+	if ($leagues == 0) {}
+	else {
+
+		$season_id		= $leagues[0]['season_id'];
 	$season_name 	= $leagues[0]['season_name'];
 	$season_status 	= $leagues[0]['season_status'];
 
@@ -120,6 +124,10 @@ for ($i = 1 ; $i < 5 ; $i++) {
 		</table>
 	</div>
 	<!-- SEASON END-->';
+
+	}
+
+	
 
 }
 

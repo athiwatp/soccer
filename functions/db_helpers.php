@@ -246,7 +246,7 @@ function fetchLeaguesBySeason($season_id) {
 	$count = $query->rowCount();
 
 	if ($count < 1) {
-		return 'No leagues available';
+		return 0;
 	}
 	else {
 		$result = $query->fetchAll(PDO::FETCH_ASSOC);
@@ -276,7 +276,7 @@ function fetchActiveLeaguesByBorough($borough) {
 	$count = $query->rowCount();
 
 	if ($count < 1) {
-		return 'No leagues available';
+		return 0;
 	}
 	else {
 		$result = $query->fetchAll(PDO::FETCH_ASSOC);
@@ -405,7 +405,7 @@ function fetchLocationBoroughs() {
 	$count = $query->rowCount();
 
 	if ($count < 1) {
-		return 'No locations available';
+		return 0;
 	}
 	else {
 		$result = $query->fetchAll(PDO::FETCH_ASSOC);
@@ -431,7 +431,7 @@ function fetchLocationsByBorough($location_borough) {
 	$count = $query->rowCount();
 
 	if ($count < 1) {
-		return 'No locations available';
+		return 0;
 	}
 	else {
 		$result = $query->fetchAll(PDO::FETCH_ASSOC);
