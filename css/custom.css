@@ -184,3 +184,6 @@ a.navbar-brand {
 .alert {
   border-radius: 0;
 }
+.login-form {
+    margin-top: 40px;
+}
