@@ -46,7 +46,7 @@ echo '.</p>
 
 
 if ($leagues == 0) {
-  echo '<p>No leagues available this season.</p>';
+  echo '<p>No leagues have been posted for this season, but this could change.</p>';
 }
   else {
 

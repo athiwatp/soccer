@@ -1,2 +1,4 @@
 con.php
 .DS_Store
+session_validate.php
+authenticate.php

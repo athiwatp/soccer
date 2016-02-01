@@ -1,5 +1,13 @@
 <?php
 include "functions/init.php";
+include "functions/authenticate.php";
+
+if (isset($_POST['login-submit'])) {
+	$token = generateToken();
+	$result = userAuthenticate($_POST, $token);
+}
+
+
 include "includes/head.php";
 include "includes/main-nav.php";
 ?>
@@ -18,7 +26,6 @@ include "includes/main-nav.php";
 		<input type="password" name="user-pw" class="form-control">
 	</div>
 	<button class="btn btn-success btn-block" type="submit" name="login-submit">Login</button>
-
 </form>
 
 </div>

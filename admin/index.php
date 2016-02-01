@@ -1,6 +1,6 @@
 <?php
 include "../functions/init.php";
-include $path . "functions/session_check.php";
+
 
 $season_ids = [1,2,3,4];
 

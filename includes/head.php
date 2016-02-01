@@ -24,6 +24,12 @@
     <![endif]-->
   </head>
   <body>
+<?php 
+
+  if (isset($preview) && $preview == 1) {
+  echo '<div class="alert alert-danger">THIS IS A PREVIEW. The league will be available publicly here: http://'.$league_url.' </div>';
+}
+?>
   
         <nav class="navbar navbar-blue navbar-static-top">
           <div class="container">

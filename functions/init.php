@@ -24,7 +24,12 @@ switch ($url_path[2-$i]) {
         $borough 	= 'home';
         break;
     case 'admin':
+        $auth       = 1;
         $path 		= '../';
+        break;
+    case 'preview':
+        $auth       = 1;
+        $preview    = 1;
         break;
     default:
     	$borough    = $url_path[2-$i];
@@ -37,5 +42,10 @@ if (isset($url_path[3-$i])) {
 include $path . "db/con.php";
 include $path . "functions/helpers.php";
 include $path . "functions/db_helpers.php";
+
+if (isset($auth) && $auth == 1) {
+    require $path . "functions/session_validate.php";
+    sessionValidate();
+}
 
 ?>

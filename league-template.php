@@ -5,9 +5,16 @@ $result = fetchLeague($league_id);
 
 include "functions/league_data.php";
 
-//////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////// HTML START /////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////
+if (isset($preview) && $preview == 1) {
+
+      $borough = strtolower($location_borough);
+      
+    } elseif ($season_status == 0 || $league_status == 3) {
+        
+        http_response_code(404);
+        redirect('../404.php');
+  }
+
 
 include "includes/head.php";
 include "includes/main-nav.php";
@@ -20,7 +27,7 @@ echo '
   <div class="hidden-xs">
     <p>';
 
-if ($league_status == 'Open') {
+if ($league_status == 1) {
   
   if ($league_captains == 1) {
     echo '<a href="http://register.nycsoccer.com/registration?bid='.$league_laid.'&amp;type=Captain" 

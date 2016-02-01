@@ -1,6 +1,6 @@
 <?php
 include "../functions/init.php";
-include $path . "functions/session_check.php";
+
 
 $boroughs = fetchLocationBoroughs();
 

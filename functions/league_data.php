@@ -1,6 +1,7 @@
 <?php 
 
 //LOCATION INFO
+$location_borough		= $result['location_borough']; 	
 $location_hood        = $result['location_hood'];
 $location_field       = $result['location_field'];
 $location_map_link    = html_entity_decode($result['location_map_link']);
@@ -10,6 +11,7 @@ $location_map_embed   = html_entity_decode($result['location_map_embed']);
 $league_id 			= $result['league_id'];
 $season_id			= $result['season_id']; 
 $season_name        = $result['season_name']; 
+$season_status		= $result['season_status'];
 $league_deadline    = formatDate($result['league_deadline']); 
 $league_start       = formatDate($result['league_start']); 
 $league_end         = formatDate($result['league_end']); 
@@ -30,6 +32,7 @@ $league_note        = $result['league_note'];
 $league_laid        = $result['league_laid']; 
 $league_status      = $result['league_status'];
 
+
 //COMPILED INFO
 if ($league_femsonfield > 0) {
   $league_format = 'Co-Ed';
@@ -38,12 +41,7 @@ else {
   $league_format = 'Men\'s';
 }
 
-if ($league_status == 1) {
-	$league_status = 'Open';
-}
-else {
-	$league_status = 'Sold Out';
-}
+$league_url		= $_SERVER['HTTP_HOST'].'/'.strtolower($location_borough).'/'.$league_id;
 
 $league_headline  	= $league_onfield . 'v' . $league_onfield . ' ' . $league_format . ' Soccer';
 $league_subhead   	= $league_day . 's @ ' . $location_field . ', ' . $location_hood; 

@@ -1,6 +1,5 @@
 <?php
 include "../functions/init.php";
-include $path . "functions/session_check.php";
 
 //Need some authentication around this? 
 if (isset($_POST['update-league'])) {

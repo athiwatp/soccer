@@ -117,6 +117,7 @@ function fetchLeague($league_id) {
 	$count = $query->rowCount();
 
 	if ($count != 1) {
+		http_response_code(404);
 		redirect('404.php');
 	}
 
