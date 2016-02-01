@@ -53,11 +53,13 @@ else {
 }
 echo '
 </p>
-</div>
-</div>
-</div>
+</div></div></div></div>';
 
-<div class="season-status">'.$season_name.' Registration Deadline: '.$league_deadline.'
+if (isset($show_img) && $show_img == 1) {
+  echo '</div>';
+}
+
+echo '<div class="season-status">'.$season_name.' Registration Deadline: '.$league_deadline.'
 </div>
 
 <div class="container container-main">

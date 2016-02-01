@@ -39,6 +39,8 @@ echo '.</p>
 
 </div>
 </div>
+</div>
+</div>
 
 <div class="container container-main">
   <div class="page-header">

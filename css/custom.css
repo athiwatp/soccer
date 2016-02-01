@@ -56,6 +56,14 @@ h1, h2, h3, h4 {
   text-decoration: none;
 }
 
+a.navbar-brand {
+    border: 0;
+}
+
+.navbar-nav>li>a {
+    border: 0;
+}
+
 li.active {
     background-color: rgba(255,255,255,0.1);
 }

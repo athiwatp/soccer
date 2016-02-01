@@ -9,18 +9,22 @@
 
     if (isset($borough) && $borough == 'home') {
       $title_tag = 'NYC Soccer League | Fun Co-Ed Soccer in New York';
+      $show_img     = 1;
     }
     $borough_array = ['Brooklyn', 'Manhattan', 'Queens'];
     if (isset($location_borough) && in_array($location_borough, $borough_array)) {
       $title_tag = $location_borough.' Soccer League | Co-Ed &amp; Men\'s';
+      $show_img     = 1;
     }
-    if (isset($league_id)) {
-      $title_tag = $league_name;
+    if (isset($league_id) && $league_id > 0) {
+      $title_tag    = $league_name;
+      $show_img     = 1;
     }
 
     if (isset($title_tag)) {} 
       else {
         $title_tag = 'NYCSoccer.com';
+        $show_img     = 0;
       }
 
     echo '<title>'.$title_tag.'</title>';
@@ -51,8 +55,21 @@
   if (isset($preview) && $preview == 1) {
   echo '<div class="alert alert-danger">THIS IS A PREVIEW. The league will be available publicly here: http://'.$league_url.' </div>';
 }
-?>
+
+
+if (isset($show_img) && $show_img == 1 && $auth != 1) {
   
+  echo '<div class="overlay" style="background: 
+      url(\'http://nycsoccer.com/imgs/bg1.jpg\') 
+      50% 50% / cover no-repeat;">';
+}
+
+
+
+?>
+<div class="bg-image" style="
+      background-color: rgba(111,182,238,0.9);
+      ">
         <nav class="navbar navbar-blue navbar-static-top">
           <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->

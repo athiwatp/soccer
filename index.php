@@ -15,7 +15,13 @@ include "includes/main-nav.php";
 <a class="link">Sign up for Updates</a>-->
 </div>
 </div>
+</div>
 
+<?php 
+if (isset($show_img) && $show_img == 1) {
+  echo '</div>';
+}
+?>
 
 
 <div class="container container-main">
@@ -49,7 +55,7 @@ include "includes/main-nav.php";
 
             include "functions/league_data.php";
 
-            echo '<li><a href="#">'.$league_name_long.'</a></li>';
+            echo '<li><a href="'.strtolower($location_borough).'/'.$league_id.'">'.$league_name_long.'</a></li>';
 
           }
               

@@ -29,4 +29,8 @@ echo '
       </div><!-- /.container-fluid -->
     </nav>';
 
+      if (isset($auth) && $auth === 1) {
+      echo '</div>';
+}
+
 ?>
