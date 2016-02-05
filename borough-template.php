@@ -25,7 +25,7 @@ echo '
 
 for ($i = 0 ; $i < count($fields) ; $i++) {
 	echo '<a class="link" target="_blank" href="'.$fields[$i]['location_map_link'].'">'.$fields[$i]['location_field'].'</a>';
-	if ($i < count($fields)-3) {
+	if ($i < count($fields)-2) {
 		echo ', ';
 	}
 	elseif ($i == count($fields)-2) {
@@ -66,11 +66,26 @@ if ($leagues == 0) {
   }
 
 
-  echo '</ul>
+  echo '</ul>';
+
+// echo '<h2>Where we play</h2>';
+
+// for ($i = 0 ; $i < count($fields) ; $i++) {
+//   echo '<div class="col-md-4">
+//     <div class="panel panel-default">
+//       <div class="panel-heading">
+//           <h4>'.$fields[$i]['location_field'].'</h4>
+//       </div>
+//       <div class="panel-body">
+//         <p></p>
+//       </div>
+//     </div>
+//   </div>';
+// }
 
 
 
-</div>';
+echo '</div>';
 
 
 

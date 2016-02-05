@@ -12,6 +12,7 @@ if (isset($_GET['id'])) {
   $location_id            = $result['location_id'];
   $location_hood          = $result['location_hood'];
   $location_field         = $result['location_field'];
+  $location_description   = $result['location_description'];
   $location_map_link      = html_entity_decode($result['location_map_link']);
   $location_map_embed     = html_entity_decode($result['location_map_embed']);
 }
@@ -84,6 +85,14 @@ echo '
        <input type="text" class="form-control" name="location-field" value="'.$location_field.'">
   </div>
 <!-- FIELD NAME    END -->
+
+
+<!-- FIELD DESCRIPTION START -->
+  <div class="form-group form-group-lg">
+    <label class="control-label">Field Description</label>
+       <input type="text" class="form-control" name="location-description" value="'.$location_description.'">
+  </div>
+<!-- FIELD DESCRIPTION    END -->
 
 
 <!-- MAP LINK START -->

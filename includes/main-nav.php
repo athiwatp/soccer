@@ -24,9 +24,11 @@
               echo 'class="active"';
             } 
             echo '><a href="queens">Queens</a></li>
-          
+
+
           </ul>
           <ul class="nav navbar-nav navbar-right">
+
             <li><a href="https://nycsoccer.leagueapps.com/login">Login</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->

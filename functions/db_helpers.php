@@ -295,6 +295,7 @@ function dbCreateLocation($values) {
 		(	location_borough,
 			location_hood,
 			location_field,
+			location_description,
 			location_map_link,
 			location_map_embed )
 		VALUES 
@@ -302,6 +303,7 @@ function dbCreateLocation($values) {
 			:location_borough,
 			:location_hood,
 			:location_field,
+			:location_description,
 			:location_map_link,
 			:location_map_embed )
 	");
@@ -310,6 +312,7 @@ function dbCreateLocation($values) {
     ':location_borough'			=> htmlentities(getBorough($values['location-hood'])), 
     ':location_hood'			=> htmlentities($values['location-hood']),
 	':location_field'			=> htmlentities($values['location-field']),
+	':location_description'		=> htmlentities($values['location-description']),
 	':location_map_link'		=> htmlentities($values['location-map-link']),
 	':location_map_embed'		=> htmlentities($values['location-map-embed'])
 	]);
@@ -327,6 +330,7 @@ function dbUpdateLocation($values) {
 			location_borough 	= :location_borough,
 			location_hood 		= :location_hood,
 			location_field		= :location_field,
+			location_description = :location_description,
 			location_map_link	= :location_map_link,
 			location_map_embed	= :location_map_embed 
 		WHERE location_id 		= :location_id
@@ -337,6 +341,7 @@ function dbUpdateLocation($values) {
     ':location_borough'			=> htmlentities(getBorough($values['location-hood'])), 
     ':location_hood'			=> htmlentities($values['location-hood']),
 	':location_field'			=> htmlentities($values['location-field']),
+	':location_description'		=> htmlentities($values['location-description']),
 	':location_map_link'		=> htmlentities($values['location-map-link']),
 	':location_map_embed'		=> htmlentities($values['location-map-embed'])
 	]);
@@ -399,6 +404,7 @@ function fetchLocationBoroughs() {
 	$query = $con->prepare("
 	SELECT * FROM locations
 	GROUP BY location_borough
+	ORDER BY location_borough DESC
 	");
 
 	$query->execute();

@@ -1,5 +1,0 @@
-RewriteEngine On
-RewriteBase /
-RewriteCond %{REQUEST_URI} !(.*)/$
-RewriteRule ^brooklyn$|queens$|manhattan$	borough-template.php\?$1 [NC,L]
-RewriteRule ^preview/(.*)|brooklyn/(.*)|queens/(.*)|manhattan/(.*)	league-template.php?id=$1 [NC,L]

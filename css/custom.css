@@ -41,7 +41,7 @@ h1, h2, h3, h4 {
 }
 
 .navbar-blue {
-  background-color: #6fb6ee;
+  /*background-color: #6fb6ee;*/
   color: #fff;
   border: none;
 }
@@ -78,7 +78,7 @@ a.navbar-brand {
 }
 
 .jumbotron {
-  background-color: #6fb6ee;
+  /*background-color: #6fb6ee;*/
   color: #fff;
   margin-bottom: 0;
 }
@@ -194,4 +194,14 @@ a.navbar-brand {
 }
 .login-form {
     margin-top: 40px;
+}
+li.fb-btn {
+    list-style: none;
+    height: 20px;
+}
+.press-logo img {
+    max-width: 250px;
+}
+.press-logo {
+    padding: 20px;
 }

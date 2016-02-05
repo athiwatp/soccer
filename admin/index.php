@@ -49,7 +49,7 @@ for ($i = 1 ; $i < 5 ; $i++) {
 	if ($leagues == 0) {}
 	else {
 
-		$season_id		= $leagues[0]['season_id'];
+	$season_id		= $leagues[0]['season_id'];
 	$season_name 	= $leagues[0]['season_name'];
 	$season_status 	= $leagues[0]['season_status'];
 
@@ -106,9 +106,8 @@ for ($i = 1 ; $i < 5 ; $i++) {
 				$league_status = 'Sold Out';
 			}
 
-
 		  	echo '<tr> 
-		  		<th scope="row"><a href="#">'.$league_day.' '.$league_onfield.'v'.$league_onfield.' '.$league_format.' @ '.$location_field.'</a></th> 
+		  		<th scope="row"><a href="preview/'.$league_id.'">'.$league_day.' '.$league_onfield.'v'.$league_onfield.' '.$league_format.' @ '.$location_field.'</a></th> 
 		  		<td>'.$league_status.'</td> 
 		  		<td>'.$league_start.' - '.$league_end.'</td> 
 		  		<td>$'.$league_price.'</td>

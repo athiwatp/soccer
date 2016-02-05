@@ -7,3 +7,7 @@ Using this as a chance to work on improving php skills, while also improving usa
 * Bootstrap
 * MySQL via PDO
 * 3rd Party Registration System
+
+##Admin 
+
+* Login at /login.php with creds root@root / root for a demo

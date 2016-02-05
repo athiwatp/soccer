@@ -33,6 +33,7 @@ if ($boroughs == 0) {}
 				  	<tr> 
 				  		<th>Field</th>
 				  		<th>Hood</th> 
+				  		<th>Description</th> 
 				  		<th>Map Link</th> 
 				  		<th>Map Embed</th> 
 				  		<th></th>
